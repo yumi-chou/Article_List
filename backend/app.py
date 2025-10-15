@@ -60,11 +60,9 @@ likes_dict = {
 @app.get("/api/comments/{article_id}")
 def get_comments(article_id: int):
     return comments_dict.get(article_id, [])
-    return {"message": "Backend is running"}
 
 
 @app.get("/api/likes/{article_id}")
 def get_likes(article_id: int):
     return likes_dict.get(article_id, [])
-    return {"message": "success"}
 
