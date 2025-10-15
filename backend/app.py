@@ -66,3 +66,7 @@ def get_comments(article_id: int):
 def get_likes(article_id: int):
     return likes_dict.get(article_id, [])
 
+@app.get("/")
+def root():
+    return {"message": "Backend is running!"}
+
