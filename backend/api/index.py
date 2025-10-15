@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 
 app = FastAPI()
 
@@ -64,3 +65,5 @@ def get_comments(article_id: int):
 @app.get("/api/likes/{article_id}")
 def get_likes(article_id: int):
     return likes_dict.get(article_id, [])
+
+handler = Mangum(app)
