@@ -7,6 +7,9 @@ import { posts } from '../components/posts.js'
 const route = useRoute()
 const id = Number(route.params.id)
 const post = posts.find(p => p.id === id)
+const API_BASE = import.meta.env.PROD
+  ? '/backend'                     
+  : 'http://localhost:8000/api'; 
 
 const comments = ref([])
 const showComments = ref(false)
@@ -16,7 +19,7 @@ const showLikes = ref(false)
 
 async function fetchComments() {
   if (!showComments.value) {
-    const res = await fetch(`http://localhost:8000/api/comments/${id}`)
+    const res = await fetch(`${API_BASE}/comments/${id}`)
     comments.value = await res.json()
     showComments.value = true
   } else {
@@ -25,7 +28,7 @@ async function fetchComments() {
 }
 
 async function fetchLikes(){
-        const res = await fetch(`http://localhost:8000/api/likes/${id}`)
+        const res = await fetch(`${API_BASE}/likes/${id}`)
         likes.value = await res.json()
 }
 

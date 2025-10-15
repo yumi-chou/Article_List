@@ -1,9 +1,10 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/backend/(.*)",
       "destination": "https://article-list-1en2.vercel.app/api/$1"
     }
   ]
 }
+
 
