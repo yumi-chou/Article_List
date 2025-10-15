@@ -70,3 +70,16 @@ def get_likes(article_id: int):
 def root():
     return {"message": "Backend is running!"}
 
+@app.get("/api/comments")
+def list_all_comments():
+    return [
+        {"article_id": aid, "comments": lst}
+        for aid, lst in comments_dict.items()
+    ]
+
+@app.get("/api/likes")
+def list_all_comments():
+    return [
+        {"article_id": aid, "likes": lst}
+        for aid, lst in likes_dict.items()
+    ]
