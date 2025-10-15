@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://fastapi-backend.vercel.app/api/:path*"
+      "destination": "https://article-list-1en2.vercel.app/api/:path*"
     }
   ]
 }
